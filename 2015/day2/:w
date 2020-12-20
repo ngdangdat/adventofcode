@@ -1,0 +1,19 @@
+INPUT_FILE = "input.txt"
+dat = [line for line in open(INPUT_FILE).read().strip().split("\n")]
+
+SPLIT_TOKEN = "x"
+
+
+def calculate_area(ip):
+    nums = [int(x) for x in ip.split(SPLIT_TOKEN)]
+    l, w, h = nums[0], nums[1], nums[2]
+    squares = [l * w, h * w, l * h]
+    return 2 * (l * w + h * w + l * h)
+
+
+if __name__ == "__main__":
+    total = 0
+    for line in dat:
+        total += calculate_area(line)
+
+    print(total)
